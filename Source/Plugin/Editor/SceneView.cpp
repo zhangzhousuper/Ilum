@@ -49,7 +49,7 @@ class SceneView : public Widget
 	struct
 	{
 		float speed     = 1.f;
-		float sensitity = 3.f;
+		float sensitivity = 3.f;
 
 		glm::vec3 velocity = glm::vec3(0.f);
 		glm::vec2 viewport = glm::vec2(0.f);
@@ -335,7 +335,7 @@ class SceneView : public Widget
 
 			if (delta_pos.x != 0.f)
 			{
-				yaw += m_camera_config.sensitity * delta_time * delta_pos.x * 0.1f;
+				yaw += m_camera_config.sensitivity * delta_time * delta_pos.x * 0.1f;
 				glm::vec3 rotation = transform->GetRotation();
 				rotation.y         = -glm::degrees(yaw) - 90.f;
 				transform->SetRotation(rotation);
@@ -343,7 +343,7 @@ class SceneView : public Widget
 
 			if (delta_pos.y != 0.f)
 			{
-				pitch -= m_camera_config.sensitity * delta_time * delta_pos.y * 0.1f;
+				pitch -= m_camera_config.sensitivity * delta_time * delta_pos.y * 0.1f;
 				glm::vec3 rotation = transform->GetRotation();
 				rotation.x         = glm::degrees(pitch);
 				transform->SetRotation(rotation);
@@ -567,7 +567,7 @@ class SceneView : public Widget
 				ImGui::EndMenu();
 			}
 			ImGui::DragFloat("Speed", &m_camera_config.speed, 0.01f, 0.f, std::numeric_limits<float>::max());
-			ImGui::DragFloat("Sensitity", &m_camera_config.sensitity, 0.01f, 0.f, std::numeric_limits<float>::max());
+			ImGui::DragFloat("Sensitivity", &m_camera_config.sensitivity, 0.01f, 0.f, std::numeric_limits<float>::max());
 			ImGui::PopItemWidth();
 			ImGui::EndPopup();
 		}
